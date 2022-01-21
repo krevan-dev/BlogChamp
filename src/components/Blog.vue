@@ -1,6 +1,6 @@
 <template>
   <div class="col-12">
-    <div class="card my-2 selectable" style="max-width: 95vw; max-height: 25vh;" @click="goToBlog()">
+    <div class="card mt-3 selectable" style="max-width: 98vw; min-height: 10vh;" @click="goToBlog()">
       <div class="row">
         <div class="col-md-2">
           <img :src="blog.imgUrl" class="img-fluid rounded-start" alt="">
@@ -33,10 +33,11 @@ export default {
   setup(props){
     const router = useRouter();
     return {
+      router,
       async goToBlog() {
         router.push({
           name: "BlogPage",
-          params: {id: props.blog.creatorId}
+          params: {id: props.blog.id}
         })
       }
     }
